@@ -1,3 +1,6 @@
+import './App.scss';
+
+import React, { useState } from 'react';
 import moment from 'moment';
 import 'moment/locale/de';
 
@@ -5,18 +8,26 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompass } from '@fortawesome/free-regular-svg-icons';
 import { faTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 
-import './App.scss';
-
 import NavBarComponent from './components/NavBar/NavBar.js';
-import NewsComponent from './components/News/News.js';
+import NewsComponent from './components/NewsComponent/NewsComponent.js';
 import CrewComponent from './components/Crew/Crew.js';
-import NewsOverlayComponent from './components/NewsOverlay/NewsOverlay.js';
+import NewsModalComponent from './components/NewsModalComponent/NewsModalComponent.js';
 
 import clip from './assets/images/clip.png';
 import route from './assets/images/route.png';
 
 function App() {
   moment.locale('de');
+
+  const [newsPopUpVisibility, setNewsPopUpVisibility] = useState(false);
+
+  const openNewsPopup = () => {
+    setNewsPopUpVisibility(true);
+  }
+
+  const closeNewsPopup = () => {
+    setNewsPopUpVisibility(false);
+  }
 
   return (
     <div className="App">
@@ -25,7 +36,7 @@ function App() {
       <NavBarComponent />
 
       {/* NEWS OVERLAY */}
-      <NewsOverlayComponent />
+      <NewsModalComponent newsPopUpVisibility={newsPopUpVisibility} onCloseButtonClick={ closeNewsPopup }/>
 
       {/* HEADER SECTION */}
       <section className="header">
@@ -37,7 +48,7 @@ function App() {
       </section>
 
       {/* NEWS SECTION */}
-      <NewsComponent />
+      <NewsComponent onNewsClick={ openNewsPopup } />
 
       {/* ARTICLE SECTION */}
       <section className="article">

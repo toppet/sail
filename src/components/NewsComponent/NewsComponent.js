@@ -1,13 +1,14 @@
 import moment from 'moment';
+import "./NewsComponent.scss";
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendarAlt, faNewspaper } from '@fortawesome/free-regular-svg-icons';
-
-import "./News.scss";
+import competition1 from '../../assets/images/competition-1.png';
+import competition2 from '../../assets/images/competition-2.png';
 
 function NewsItem(props) {
   return (
-    <div className="news-item">
+    <div className="news-item" onClick={props.clickEvent}>
       <span className="news-item__date"><FontAwesomeIcon icon={faCalendarAlt} className="news-item__icon" />{moment(props.date).format("ll")}</span>
       <h3 className="news-item__title">{props.title}</h3>
       <p className="news-item__description">{props.description}</p>
@@ -15,8 +16,7 @@ function NewsItem(props) {
   )
 }
 
-function NewsComponent() {
-
+function NewsComponent({ onNewsClick }) {
   const getNewsItems = () => {
     const todaysDate = new Date().getTime();
     const newsData = [
@@ -26,7 +26,7 @@ function NewsComponent() {
         description: "Lorem Ipsum. Proin gravida nibh velit auctor aliquet. Aenean sollicitudin... quis bibendum auctor.",
       },
       {
-        date: todaysDate,
+        date: "2021-08-12",
         title: "News Headline",
         description: "Lorem Ipsum. Proin gravida nibh velit auctor aliquet. Aenean sollicitudin... quis bibendum auctor.",
       },
@@ -38,6 +38,7 @@ function NewsComponent() {
         date={news.date}
         title={news.title}
         description={news.description}
+        clickEvent={onNewsClick}
       />
     );
 
@@ -48,18 +49,18 @@ function NewsComponent() {
     <section className="news">
 
       <div className="col-left segment-h2-v3">
-        {getNewsItems()}
+        { getNewsItems() }
         <div className="image-4x4"></div>
       </div>
 
       <div className="col-right segment-h2-v3">
-        <div className="competition">
+        <div className="competition" style={{ background: `url(${competition1}) no-repeat top center / cover`}}>
           <div className="competition__date">{moment('2020-05-17').format('DD MMM')}</div>
           <div className="competition__title">HEADLINE BEITRAG 2021</div>
           <div className="competition__subtitle">SUBTITLE</div>
           <div className="competition__desc">Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor. nisi elit consequat ipsum, nec sagittis sem nibh id elit. </div>
         </div>
-        <div className="competition">
+        <div className="competition" style={{ background: `url(${competition2}) no-repeat top center / cover`}}>
           <div className="competition__date">{moment('2020-10-03').format('DD MMM')}</div>
           <div className="competition__title">HEADLINE BEITRAG 2021</div>
           <div className="competition__subtitle">SUBTITLE - ORT - JAHR</div>

@@ -59,10 +59,7 @@
       grid-template-rows: 380px repeat(2, 280px);
     }
   }
-  .news-item,
-  .competition,
-  .news-bilder,
-  .termin {
+  .news-item{
     cursor: pointer;
   }
 
@@ -157,16 +154,6 @@
     padding: 25px;
     
     transition: background-color 100ms ease-in-out;
-
-    &:hover {
-      background-color: black;
-
-      .competition__date,
-      .competition__subtitle,
-      .competition__desc {
-        color: white;
-      }
-    }
 
     @media screen and (min-width: 768px) {
       padding: 10px 25px;
