@@ -1,52 +1,11 @@
 @import 'src/variables.scss';
 
-// .logo {
-//   display: flex;
-//   align-items: center;
-//   justify-content: flex-start;
-//   margin-left: auto;
-//   padding: 10px 15px;
-//   z-index: 100;
-//   position: relative;
-
-//   &__icon {
-//     border: 2px solid white;
-//     border-radius: 50%;
-//     color: $color-red;
-//     background: white;
-//     width: 25px;
-//     height: 25px;
-//     padding: 3px;
-//     margin-right: 5px;
-//   }
-
-//   &__text {
-//     font-family: Arial, sans-serif;
-//     font-weight: bold;
-//     text-transform: uppercase;
-//     color: white;
-//     font-size: 18px;
-
-//     span {
-//       font-weight: normal;
-//     }
-//   }
-
-  // @media screen and (min-width: 768px) {
-  //   background: $color-red;
-  //   padding: 10px 35px 10px 100px;
-  //   order: 2;
-  // }
-// }
-
 .logo {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-end;
   margin-left: auto;
-  // padding-left: 135px;
-  // padding-right: 55px;
   padding: 15px;
   background: $color-red;
   order: 2;
@@ -71,9 +30,6 @@
   
   &__icon {
     color: $color-red;
-    // -moz-background-clip: padding;
-    // -webkit-background-clip: padding-box;
-    // background-clip: padding-box;
   }
 
   &__text {
