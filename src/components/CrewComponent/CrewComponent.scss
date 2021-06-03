@@ -78,10 +78,11 @@
       height: 285px;
       position: relative;
       cursor: pointer;
+      opacity: 0; // because of the fade in animation
+      animation: fadeInOpacity 350ms ease forwards;
       
       @media screen and (min-width: $tablet) {
         flex-basis: 33%;
-        
       }
       @media screen and (min-width: $desktop) {
         flex-basis: 20%;
@@ -234,6 +235,15 @@
       top: 50%;
       left: 50;
       transform: translate(-50%, -50%);
+    }
+  }
+
+  @keyframes fadeInOpacity {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
     }
   }
 

@@ -32,15 +32,16 @@ function CrewComponent() {
       setFilteredCrewMembers(initialNumberOfCrewMembers);
 
     } catch (error) {
-      console.log('error', error)
+      console.log('Request error', error)
     } finally {
       setLoading(false);
     }
   };
 
-  const getCrewMember = (crewMember) => {
+  const getCrewMember = (crewMember, index) => {
+    console.log(index);
     return (
-      <div key={crewMember.name} className="crew-member" style={{ background: `url(${crewMember.image}) no-repeat center center`, backgroundSize: "cover" }}>
+      <div key={crewMember.name} className="crew-member" style={{ background: `url(${crewMember.image}) no-repeat center center / cover` }}>
         <div className="crew-member__overlay"></div>
         <div className="crew-member__info">
           <p className="crew-member__name">{crewMember.name}</p>
@@ -88,12 +89,10 @@ function CrewComponent() {
     const filterCrewBy = e.target.value;
 
     if(e.target.value === "show-all") {
-      console.log('showall', loadedCrewMembers);
       setFilteredCrewMembers(loadedCrewMembers);
       return;
     }
     const filteredCrewMembers = loadedCrewMembers.filter(crewMember => crewMember.duty_slugs.includes(filterCrewBy));
-    console.log('filterBy',filterCrewBy, 'filteredCrewMembers', filteredCrewMembers);
 
     setFilteredCrewMembers(filteredCrewMembers);
   }
@@ -120,7 +119,7 @@ function CrewComponent() {
 
       <div className="crew-members">
         {
-          filteredCrewMembers.map(crewMember => getCrewMember(crewMember))
+          filteredCrewMembers.map((crewMember, index) => getCrewMember(crewMember, index))
         }
       </div>
 
