@@ -22,10 +22,10 @@
     position: relative;
     z-index: 1;
     
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       height: 600px;
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       height: 780px;
     }
 
@@ -34,13 +34,13 @@
       margin-top: 50px;
       padding: 15px 10px;
       
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $tablet) {
         max-width: 550px;
         margin-left: auto;
         padding: 25px;
         margin-top: 75px;
       }
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         margin-top: 135px;
       }
   
@@ -57,10 +57,10 @@
         margin-bottom: 10px;
         font-size: 45px;
         
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: $tablet) {
           font-size: 50px;
         }
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: $desktop) {
           font-size: 65px;
         }
       }
@@ -68,11 +68,11 @@
         font-size: 15px;
         font-weight: bold;
         
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: $tablet) {
           font-size: 15px;
         }
 
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: $desktop) {
           font-size: 20px;
         }
       }
@@ -87,10 +87,10 @@
       top: 0;
       transform: translate(45%, -10%);
       
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $tablet) {
         font-size: 250px;
       }
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         font-size: 425px;
       }
     }
@@ -107,24 +107,24 @@
     padding: 25px 20px;
     margin-bottom: 100px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       padding: 50px;
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       margin-bottom: 150px;
       padding: 50px 150px;
     }
 
     .headline {
       font-size: 30px;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $tablet) {
         font-size: 50px;
       }
     }
     .subtitle {
       font-size: 15px;
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $tablet) {
         font-size: 20px;
       }
     }
@@ -136,7 +136,7 @@
       margin-bottom: 25px;
       border: 1px solid $light-grey;
       
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $tablet) {
         margin-bottom: 50px;
       }
     }
@@ -148,7 +148,7 @@
       justify-content: space-around;
       margin-bottom: 50px;
       
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $tablet) {
         flex-direction: row;
         margin-bottom: 100px;
       }
@@ -157,7 +157,7 @@
       &--right {
         flex: 1;
 
-        @media screen and (min-width: 768px) {
+        @media screen and (min-width: $tablet) {
           max-width: 45%;
         }
       }
@@ -181,12 +181,12 @@
       z-index: 1;
       width: 125px;
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $tablet) {
         width: 165px;
         margin-top: -50px;
       }
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         left: 55%;
         width: auto;
         margin-top: -35px;
@@ -231,7 +231,7 @@
     max-width: inherit;
     padding: 35px 30px;
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       flex-direction: row;
     }
 
@@ -244,7 +244,7 @@
     .sitemap {
       margin-bottom: 15px;
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         margin-bottom: 0;
       }
     }
@@ -258,7 +258,7 @@
       transform: none;
       left: 0;
       
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         position: absolute;
         left: 50%;
         transform: translateX(-50%);
@@ -279,18 +279,18 @@
       align-items: center;
       list-style: none;
 
-      @media screen and (min-width: 768px) {
+      @media screen and (min-width: $tablet) {
         flex-direction: row;
         margin-bottom: 15px;
       }
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         margin-bottom: 0;
       }
 
       li {
         padding: 10px 20px;
         
-        @media screen and (min-width: 1280px) {
+        @media screen and (min-width: $desktop) {
           padding: 0 5px;
         }
       }

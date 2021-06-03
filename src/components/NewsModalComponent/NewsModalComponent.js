@@ -104,16 +104,17 @@ const ButtonGroup = ({ next, previous }) => {
 
 function NewsModalComponent({ newsPopUpVisibility, onCloseButtonClick }) {
   const [currentImageSlideIndex, setCurrentImageSlideIndex] = useState(1);
-  const parentRef = useRef();
+  const dektopRef = useRef();
+  const mobileRef = useRef();
   useLockBodyScroll(newsPopUpVisibility);
 
   if(!newsPopUpVisibility) {
     return null;
   }
 
-  const handleAfterChange = () => {
-    const table = getOriginalIndexLookupTableByClones(parentRef.current.state.slidesToShow, React.Children.toArray(parentRef.current.props.children));
-    const realIndex = table[parentRef.current.state.currentSlide];
+  const handleAfterChange = (referenceToCarousel) => {
+    const table = getOriginalIndexLookupTableByClones(referenceToCarousel.current.state.slidesToShow, React.Children.toArray(referenceToCarousel.current.props.children));
+    const realIndex = table[referenceToCarousel.current.state.currentSlide];
 
     setCurrentImageSlideIndex(realIndex + 1);
   };
@@ -163,21 +164,21 @@ function NewsModalComponent({ newsPopUpVisibility, onCloseButtonClick }) {
           <h3 className="news__title">NEWSARTIKEL HEADLINE</h3>
           <p className="news__subtitle">LOREM IPSUM PROIN GRAVIDA NIBH VEL VELIT</p>
           <hr />
+          <div className="news__image-carousel news__image-carousel--mobile">
+            <Carousel
+              ref={mobileRef}
+              responsive={imageCarauselResponsiveOptions}
+              swipeable={false}
+              draggable={false}
+              infinite={true}
+              containerClass="image-carousel-container"
+              afterChange={() => handleAfterChange(mobileRef)}
+            >
+              { getCarouselImages() }
+            </Carousel>
+            <span className="carousel-status">{currentImageSlideIndex} / {imageCaraouselData.length}</span>
+          </div>
           <div className="news__text">
-            <div className="news__image-carousel news__image-carousel--mobile">
-              <Carousel
-                ref={parentRef}
-                responsive={imageCarauselResponsiveOptions}
-                swipeable={false}
-                draggable={false}
-                infinite={true}
-                containerClass="image-carousel-container"
-                afterChange={handleAfterChange}
-              >
-                { getCarouselImages() }
-              </Carousel>
-              <span className="carousel-status">{currentImageSlideIndex} / {imageCaraouselData.length}</span>
-            </div>
             <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim. </p>
             <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim. Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit.</p>
           </div>
@@ -186,19 +187,18 @@ function NewsModalComponent({ newsPopUpVisibility, onCloseButtonClick }) {
         <div className="news__col-right">
           <div className="news__image-carousel news__image-carousel--desktop">
             <Carousel
-              ref={parentRef}
+              ref={dektopRef}
               responsive={imageCarauselResponsiveOptions}
               swipeable={false}
               draggable={false}
               infinite={true}
               containerClass="image-carousel-container"
-              afterChange={handleAfterChange}
+              afterChange={() => handleAfterChange(dektopRef)}
             >
               { getCarouselImages() }
             </Carousel>
-            
+            <span className="carousel-status">{currentImageSlideIndex} / {imageCaraouselData.length}</span>
           </div>
-          <span className="carousel-status">{currentImageSlideIndex} / {imageCaraouselData.length}</span>
           <div className="news__text">
             <p>Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi. Proin condimentum fermentum nunc. Etiam pharetra, erat sed fermentum feugiat, velit mauris egestas quam, ut aliquam massa nisl quis neque. Suspendisse in orci enim. Lorem Ipsum. Proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non  mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostr.</p>
           </div>

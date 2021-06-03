@@ -9,7 +9,7 @@
   flex-wrap: wrap;
   margin-top: -25px;
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: $tablet) {
     margin-top: -100px;
   }
 
@@ -17,11 +17,11 @@
   .col-right {
     width: 100%;
     
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       width: 50%;
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
 
     }
   }
@@ -29,7 +29,7 @@
   .segment-h2-v1,
   .segment-h2-v3 {
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       display: grid;
     }
 
@@ -39,22 +39,22 @@
     grid-template-columns: 1fr;
     grid-template-rows: 280px;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       grid-template-rows: 200px;
     }
-    @media screen and (min-width: 1280px) {}
+    @media screen and (min-width: $desktop) {}
   }
 
   .segment-h2-v3 {
     grid-template-columns: initial;
     grid-template-rows: initial;   
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       grid-template-columns: repeat(2, 50%);
       grid-template-rows: 300px repeat(2, 200px);
     }
 
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       grid-template-columns: repeat(2, 50%);
       grid-template-rows: 380px repeat(2, 280px);
     }
@@ -83,14 +83,14 @@
       }
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       padding: 10px;
       
       &:first-child {
         padding-top: 0;
       }
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       padding: 25px;
     }
 
@@ -106,11 +106,11 @@
       font-size: 13px;
       margin-bottom: 15px;
 
-      // @media screen and (min-width: 768px) {
+      // @media screen and (min-width: $tablet) {
       //   // font-size: 13px;
       // }
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         font-size: 15px;
       }
     }
@@ -119,7 +119,7 @@
       font-size: 25px;
       margin-right: 10px;
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         font-size: 30px;
       }
     }
@@ -129,7 +129,7 @@
       color: $color-red;
       font-size: 15px;
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         font-size: 20px;
       }
     }
@@ -137,7 +137,7 @@
     &__description {
       font-size: 13px;
       
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         font-size: 15px;
       }
     }
@@ -155,10 +155,10 @@
     
     transition: background-color 100ms ease-in-out;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       padding: 10px 25px;
     }
-    @media screen and (min-width: 1280px) {
+    @media screen and (min-width: $desktop) {
       padding: 40px;
       padding-top: 60px;
     }
@@ -172,10 +172,10 @@
     &__date {
       font-size: 30px;
 
-      // @media screen and (min-width: 1280px) {
+      // @media screen and (min-width: $desktop) {
       //   font-size: 45px;
       // }
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         font-size: 45px;
       }
     }
@@ -184,7 +184,7 @@
       color: $color-red;
       font-size: 20px;
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         font-size: 45px;
       }
     }
@@ -193,14 +193,14 @@
       font-weight: bold;
       font-size: 15px;
 
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         font-size: 20px;
       }
     }
 
     &__desc {
       font-size: 12px;
-      @media screen and (min-width: 1280px) {
+      @media screen and (min-width: $desktop) {
         font-size: 15px;
       }
     }
@@ -220,7 +220,7 @@
     background: url("../../assets/images/image-4x4.jpg") no-repeat center center;
     background-size: cover;
 
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       height: auto;
       grid-column: 1 / 3;
       grid-row: 2 / -1;
@@ -242,7 +242,7 @@
     height: 280px;
 
     
-    @media screen and (min-width: 768px) {
+    @media screen and (min-width: $tablet) {
       height: auto;
     }
 
