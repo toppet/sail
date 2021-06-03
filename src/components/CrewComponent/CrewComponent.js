@@ -10,17 +10,29 @@ function CrewComponent() {
   const [allCrewMembers, setAllCrewMembers] = useState([]);
   const [loadedCrewMembers, setLoadedCrewMembers] = useState([]);
   const [filteredCrewMembers, setFilteredCrewMembers] = useState([]);
+  const [selectedFilter, setSelectedFilter] = useState("show-all");
   const [loading, setLoading] = useState(true);
   
   const initialCrewMemberCount = 10;
-  const nextCrewMemberCount = 2;
+  const membersToLoadCount = 2;
   
+  // this is the initial function call which is run only once, when the CrewComponent is loaded
+  useEffect(() => getCrew(), []);
+  
+  // the array filter is applied everytime the selectedFilter string or the loadedCrewMember array is modified
   useEffect(() => {
-    getCrew();
-  }, []);
+    if(selectedFilter === "show-all") {
+      setFilteredCrewMembers(loadedCrewMembers);
+      return;
+    }
+
+    const filteredCrewMembers = loadedCrewMembers.filter(crewMember => crewMember.duty_slugs.includes(selectedFilter));
+
+    setFilteredCrewMembers(filteredCrewMembers);
+    
+  }, [selectedFilter, loadedCrewMembers]);
   
   const getCrew = async () => {
-
     try {
       const response = await fetch("/sailor_team.json");
       const data = await response.json();
@@ -39,7 +51,6 @@ function CrewComponent() {
   };
 
   const getCrewMember = (crewMember, index) => {
-    console.log(index);
     return (
       <div key={crewMember.name} className="crew-member" style={{ background: `url(${crewMember.image}) no-repeat center center / cover` }}>
         <div className="crew-member__overlay"></div>
@@ -58,13 +69,14 @@ function CrewComponent() {
     await new Promise(resolve => setTimeout(resolve, Math.floor(Math.random() * 1000) + 500));
     const currentNumberOfCrewMembersLoaded = loadedCrewMembers.length;
     const sliceFrom = currentNumberOfCrewMembersLoaded;
-    const sliceUntil = currentNumberOfCrewMembersLoaded + nextCrewMemberCount;
-
-    const newlyLoadedCrewMembers = allCrewMembers.slice(sliceFrom, sliceUntil);
-    const crewWithNewMembers = [ ...loadedCrewMembers, ...newlyLoadedCrewMembers ];
+    const sliceUntil = (currentNumberOfCrewMembersLoaded + membersToLoadCount);
     
+    // simulating additional array items
+    const newlyLoadedCrewMembers = allCrewMembers.slice(sliceFrom, sliceUntil);
+
+    const crewWithNewMembers = [ ...loadedCrewMembers, ...newlyLoadedCrewMembers ];
+
     setLoadedCrewMembers(crewWithNewMembers);
-    setFilteredCrewMembers(crewWithNewMembers);
 
     setLoading(false);
   }
@@ -86,15 +98,8 @@ function CrewComponent() {
   }
 
   const onFilterClick = (e) => {
-    const filterCrewBy = e.target.value;
-
-    if(e.target.value === "show-all") {
-      setFilteredCrewMembers(loadedCrewMembers);
-      return;
-    }
-    const filteredCrewMembers = loadedCrewMembers.filter(crewMember => crewMember.duty_slugs.includes(filterCrewBy));
-
-    setFilteredCrewMembers(filteredCrewMembers);
+    const selectedFilter = e.target.value;
+    setSelectedFilter(selectedFilter);
   }
 
   return (

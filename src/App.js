@@ -21,11 +21,11 @@ function App() {
 
   const [newsPopUpVisibility, setNewsPopUpVisibility] = useState(false);
 
-  const openNewsPopup = () => {
+  const openNewsModal = () => {
     setNewsPopUpVisibility(true);
   }
 
-  const closeNewsPopup = () => {
+  const closeNewsModal = () => {
     setNewsPopUpVisibility(false);
   }
 
@@ -36,7 +36,7 @@ function App() {
       <NavBarComponent />
 
       {/* NEWS OVERLAY */}
-      <NewsModalComponent newsPopUpVisibility={newsPopUpVisibility} onCloseButtonClick={ closeNewsPopup }/>
+      <NewsModalComponent newsPopUpVisibility={newsPopUpVisibility} onCloseButtonClick={ closeNewsModal }/>
 
       {/* HEADER SECTION */}
       <section className="header">
@@ -48,7 +48,7 @@ function App() {
       </section>
 
       {/* NEWS SECTION */}
-      <NewsComponent onNewsClick={ openNewsPopup } />
+      <NewsComponent onNewsClick={openNewsModal}/>
 
       {/* ARTICLE SECTION */}
       <section className="article">

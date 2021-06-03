@@ -33,10 +33,10 @@ function NavBarComponent() {
       </div>
       <div className="nav-bar__content" hidden={!navbarOpen}>
         <nav>
-          <a href="/about-us">About Us</a>
-          <a href="/gallery">Gallery</a>
-          <a href="/crew">Crew</a>
-          <a href="/kontact">Kontact</a>
+          <a href="/">About Us</a>
+          <a href="/">Gallery</a>
+          <a href="/">Crew</a>
+          <a href="/">Kontact</a>
         </nav>
       </div>
     </div>

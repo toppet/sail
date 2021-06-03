@@ -78,8 +78,7 @@
       height: 285px;
       position: relative;
       cursor: pointer;
-      opacity: 0; // because of the fade in animation
-      animation: fadeInOpacity 350ms ease forwards;
+      animation: fadeInOpacity 350ms ease-in-out ;
       
       @media screen and (min-width: $tablet) {
         flex-basis: 33%;
