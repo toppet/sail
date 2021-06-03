@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFlag } from '@fortawesome/free-regular-svg-icons';
 
-import "./Crew.scss";
+import "./CrewComponent.scss";
 
 import sailing from "../../assets/images/sailing.png"
 

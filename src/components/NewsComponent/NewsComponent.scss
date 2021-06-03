@@ -172,16 +172,20 @@
     &__date {
       font-size: 30px;
 
+      // @media screen and (min-width: 1280px) {
+      //   font-size: 45px;
+      // }
       @media screen and (min-width: 1280px) {
-        font-size: 50px;
+        font-size: 45px;
       }
     }
 
     &__title {
       color: $color-red;
       font-size: 20px;
+
       @media screen and (min-width: 1280px) {
-        font-size: 50px;
+        font-size: 45px;
       }
     }
 

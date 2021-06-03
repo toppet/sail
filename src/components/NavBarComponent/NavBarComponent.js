@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import "./NavBar.scss";
+import "./NavBarComponent.scss";
 
 import LogoComponent from '../common/LogoComponent/LogoComponent.js';
 

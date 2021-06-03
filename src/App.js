@@ -8,9 +8,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCompass } from '@fortawesome/free-regular-svg-icons';
 import { faTwitter, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 
-import NavBarComponent from './components/NavBar/NavBar.js';
+import NavBarComponent from './components/NavBarComponent/NavBarComponent.js';
 import NewsComponent from './components/NewsComponent/NewsComponent.js';
-import CrewComponent from './components/Crew/Crew.js';
+import CrewComponent from './components/CrewComponent/CrewComponent.js';
 import NewsModalComponent from './components/NewsModalComponent/NewsModalComponent.js';
 
 import clip from './assets/images/clip.png';
