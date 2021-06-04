@@ -105,6 +105,8 @@
         
         visibility: hidden;
         opacity: 0;
+
+        pointer-events: none; // ignore hover over this info box
         
         flex-direction: column;
         align-items: center;
